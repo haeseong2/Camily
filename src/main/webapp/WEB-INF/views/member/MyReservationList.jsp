@@ -85,22 +85,18 @@
 	<!-- TopBar-->
 	<%@ include file="/WEB-INF/views/includes/TopBar.jsp"%>
 	<!-- End TopBar-->
-	
+
 	<!-- memberModal -->
 	<%@ include file="/WEB-INF/views/member/memberModal.jsp"%>
 	<!-- EndmemberModal -->
-	
+
 	<c:set var="today" value="<%=new Date() %>"></c:set>
 	<!-- End of Topbar -->
-	
 	<form class="bg0 p-t-35 p-b-85">
 		<div class="section-reply-title">
 			<h5>캠핑예약내역⛺</h5>
 			<h6>캠핑예약 내역을 확인하세요!</h6>
 		</div>
-		<c:if test="${fn:length(myReservationList) == 0}">
-			<p style="text-align: center;">예매내역이 존재하지 않습니다!!!</p>
-		</c:if>
 		<c:forEach items="${myReservationList}" var="myReservationInfo">
 			<div class="col-9" style="padding-top: 30px; margin: auto; font-family: Poppins-Bold;">
 				<div class="bg-light rounded h-100 p-4">
@@ -108,7 +104,7 @@
 						<table class="table">
 							<colgroup>
 								<col style="width: 10%">
-								<col style="width: 25$">
+								<col style="width: 15%">
 								<col style="width: 15%">
 								<col style="width: 25%">
 								<col style="width: 15%">
@@ -134,9 +130,11 @@
 									<td>${myReservationInfo.caname}</td>
 									<td>${myReservationInfo.recrname} ${myReservationInfo.recrnum}</td>
 									<td>${myReservationInfo.startday} ~ ${myReservationInfo.endday}</td>
-									<td>${myReservationInfo.totalprice}원</td>
+									<td>${myReservationInfo.myformatter}원
+										<!-- ${myReservationInfo.totalprice}원 -->
+									</td>
 									<td><a href="cpWrite?recacode=${myReservationInfo.recacode }&recode=${myReservationInfo.recode}"
-											class="flex-c-m stext-101 cl0 size-80 bg1 bor1 hov-btn1 p-lr-15 trans-04">후기작성</a>
+											class="flex-c-m stext-101 cl0 size-80 bg1 bor1 hov-btn1 trans-04">후기작성</a>
 									</td>
 								</tr>
 								<c:if test="${fn:length(myReservationList) == 0}">
@@ -150,49 +148,7 @@
 				</div>
 			</div>
 		</c:forEach>
-	</form>
-		<%-- <div class="container">
-			<div class="m-lr-auto m-b-50">
-				<div class="m-l-25 m-r--38 m-lr-0-xl">
-					<div class="wrap-table-shopping-cart">
-						<table class="table-shopping-cart">
-							<tbody>
-								<tr class="table_head">
-									<th class="column-1">예약번호</th>
-									<th class="column-2">캠핑장 이름</th>
-									<th class="column-3">예약타입</th>
-									<th class="column-4">에약일자</th>
-									<th class="column-5">결제금액</th>
-								</tr>
-								<c:if test="${fn:length(myReservationList)} == 0">
-									<tr class="table_row">
-										<th colspan="5" style="text-align: center;"> 예약내역이 존재하지 않습니다.</th>
-									</tr>
-								</c:if>
-								<c:forEach items="${myReservationList}" var="myReservationInfo">
-									<tr class="table_row" style="height: 50px;" id="">
-										<td class="column-1" style="padding-bottom: 0px;">
-											<a href="myReservation?recode=${myReservationInfo.recode}">
-												${myReservationInfo.recode}
-											</a>
-										</td>
-										<td class="column-2" style="padding-bottom: 0px;">${myReservationInfo.caname}</td>
-										<td class="column-3" style="padding-bottom: 0px;">${myReservationInfo.recrname} ${myReservationInfo.recrnum}</td>
-										<td class="column-4" style="padding-bottom: 0px;">
-											${myReservationInfo.startday} ~ ${myReservationInfo.endday}
-										</td>
-										<td class="column-5" style="padding-bottom: 0px;">${myReservationInfo.totalprice}원</td>
-									</tr>
-									<a href="cpWrite?recacode=${myReservationInfo.recacode }&recode=${myReservationInfo.recode}" style="margin-top: 100px"
-									 class="flex-c-m stext-101 cl5 size-80 bg2 bor1 hov-btn1 p-lr-15 trans-04">후기</a>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div> --%>
-	
+	</form>	
 
 	<!-- Footer -->
 	<%@ include file="/WEB-INF/views/includes/Footer.jsp"%>
@@ -212,7 +168,7 @@
 		}
 	</script>
 
-		<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/popper.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->

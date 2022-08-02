@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-	<title>캠핑장</title>
+	<title>캠핑장 목록</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -69,7 +69,7 @@
 			<div class="flex-w flex-sb-m p-b-52">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" onclick="campingList(null)">
-						전체보기
+						모든 캠핑장
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" onclick="campingList('glamping')">
@@ -160,7 +160,8 @@
 									<span class="stext-105 cl3">
 										<c:choose>
 											<c:when test="${campingInfo.crprice != null}">
-												${campingInfo.crprice}원 부터 ~
+												${campingInfo.cformatter}원 부터 ~
+												<%-- ${campingInfo.crprice} --%>
 											</c:when>
 											<c:otherwise>
 												준비중
@@ -179,9 +180,9 @@
 				</c:forEach>
 			</div>
 
-			<!-- Load more -->
+			
+			<!-- Pagination 시작 -->
 			<div class="flex-c-m flex-w w-full p-t-45">
-				<!-- Pagination 시작 -->
 				<div class="flex-c-m flex-w w-full p-t-45" style="margin-top: auto; margin-right: auto;">
 					<c:choose>
 						<c:when test="${pageDto.page <= 1}">
@@ -210,8 +211,8 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-				<!-- Pagination 종료 -->
 			</div>
+			<!-- Pagination 종료 -->
 		</div>
 	</div>
 

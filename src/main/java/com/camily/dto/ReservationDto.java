@@ -24,4 +24,7 @@ public class ReservationDto {
 	private String endday;
 	private String crprice;
 	private int totalprice;
+
+	private String myformatter; // 예약내역 가격 콤마
+	
 }

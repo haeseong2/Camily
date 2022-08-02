@@ -53,12 +53,12 @@ public interface CampingShopDao {
 	// 구매내역 보기 (SELECT) 페이징 처리
 	ArrayList<GoodsOrderDto> PurchaseList(@Param("loginId") String loginId, @Param("startRow") int startRow, @Param("endRow") int endRow);
     
+	// 구매목록페이지 페이징처리
+	int getCampTotalCount2(String loginId);
+	
 	// 구매목록 삭제하기 dao 호출 (UPDATE)
 	int deleteph(@Param("gocode") String gocode, @Param("gostate") String gostate);
     
-	// 구매목록페이지 페이징처리
-	@Select("SELECT COUNT(*) FROM GOODSORDER")
-	int getCampTotalCount2();
 	
 	// 캠핑 용품 (SELECT) AA
 	GoodsDto getCampingInfo(String gcode);
@@ -84,7 +84,7 @@ public interface CampingShopDao {
 			@Param("diprice") String diprice, @Param("ditotalprice") int ditotalprice);    	
 
 	// 값이 있으면 해당하는 상품이 있으니까 수량만 늘려줌 (UPDATE) ZZ
-	int update(@Param("diamount") String diamount, @Param("old") String old, @Param("loginId") String loginId);
+	int update(@Param("diamount") String diamount, @Param("loginId") String loginId, @Param("ditotalprice2") int ditotalprice2, @Param("dicode") String dicode);
 	
 	// 장바구니 목록 페이지 출력 (SELECT)
 	ArrayList<CampingDetailInformationDto> detailinformation(String loginId);
@@ -108,7 +108,7 @@ public interface CampingShopDao {
 	int cancelreasonput(@Param("gocode") String gocode, @Param("gocancel") String gocancel);
     
 	// 캠핑용품 문의글 가져오기
-	ArrayList<GoodsQnADto> goodsQuestionList(String gcode);
+	ArrayList<GoodsQnADto> goodsQuestionList(@Param("startRow") int startRow, @Param("endRow") int endRow, @Param("gcode") String gcode);
 	
     // 문의글 코드 최댓값 조회
 	String getMaxGqcode();
@@ -124,7 +124,13 @@ public interface CampingShopDao {
 	
     // 문의글 삭제(state 0)
 	int modifyGoodsQuestionState(String gqcode);
-	
+
+	// 문의글 갯수
+	int getGoodsQnATotalCount();
+   
+
+   
+
    
 
     
