@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,6 @@
 <script src="${pageContext.request.contextPath}/resources/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
 <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
-<script src="https://kit.fontawesome.com/d70fa0d402.js" crossorigin="anonymous"></script>
 
 <style type="text/css">
 .section-reply-title {
@@ -115,7 +115,11 @@
 								<c:forEach items="${boardList}" var="boardList">
 									<tr>
 										<td>${boardList.bocode }</td>
-										<td><a href="boardView?bocode=${boardList.bocode }">${boardList.botitle }</a></td>
+										<td><a href="boardView?bocode=${boardList.bocode }">${boardList.botitle }</a> 
+										 💬
+										[${boardList.borpcount }]</td>
+										
+										
 										<td><i class="fa-regular fa-user"></i> ${boardList.bomid }</td>
 										<td><i class="fa-regular fa-calendar"></i>
 											${boardList.bodate }</td>

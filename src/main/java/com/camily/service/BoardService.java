@@ -34,7 +34,12 @@ public class BoardService {
 		System.out.println("BoardService.boardList() 호출");
 		ModelAndView mav = new ModelAndView();
 		ArrayList<BoardDto> boardList = badao.selectBoardList();
-
+		
+		for(int i = 0 ; i < boardList.size(); i++) {
+			int rpcount = rdao.replyCount(boardList.get(i).getBocode());
+			boardList.get(i).setBorpcount(rpcount);
+		}
+		
 		mav.addObject("boardList", boardList);
 		mav.setViewName("board/BoardList");
 		return mav;
