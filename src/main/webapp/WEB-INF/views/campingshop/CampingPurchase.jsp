@@ -213,7 +213,7 @@
 								<tbody>
 								<tr class="table_row">
 									<td class="column-1">${sessionScope.loginId }</td>
-									<td class="column-2"><input value="${addselect.maddr }" readonly="readonly" id="newadd" class="size-209 p-r-18 p-r-0-sm w-full-ssm"></td>
+									<td class="column-2"><input value="${addselect.maddr }" style="background-color:#f8f9fa;" readonly="readonly" id="newadd" class="size-209 p-r-18 p-r-0-sm w-full-ssm"></td>
 									<td class="column-3">
 									<button type="button"
 									 onclick="requestPay('${campingpurchase.gcode}','${campingpurchase.gname }',${totalPrice},
@@ -484,10 +484,10 @@ function requestPay(gcode,gname,total,memail,mname,mtel,maddr) {
     }, function (rsp) { // callback
         if (rsp.success) {
             alert("결제성공입니다.!!")
-            //$("#goodsform").submit();
+            $("#goodsform").submit();
         } else {
         	alert("결제실패입니다.!!")
-        	$("#goodsform").submit();
+        	//$("#goodsform").submit();
         }
     });/* function (rsp) { // callback
         if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
