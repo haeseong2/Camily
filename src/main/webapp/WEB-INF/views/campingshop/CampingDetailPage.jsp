@@ -313,7 +313,8 @@
 					</form>
 				</c:if>
 			</div>
-
+		</div>
+	</div>
 	<!-- Footer -->
 	<%@ include file="/WEB-INF/views/includes/Footer.jsp"%>
 	<!-- End of Footer -->
@@ -351,11 +352,6 @@ try {
 	          mobileWebUrl:'http://121.65.47.77:7772/controller/campingDetailPage?gcode='+gcode,
 	          webUrl:'http://121.65.47.77:7772/controller/campingDetailPage?gcode='+gcode,
 	        },
-	      },
-	      social: {
-	        likeCount: 286,
-	        commentCount: 45,
-	        sharedCount: 845,
 	      },
 	      buttons: [
 	        {
