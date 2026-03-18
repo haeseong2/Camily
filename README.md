@@ -1,6 +1,6 @@
 # 🏕 Camily - Camping Reservation Web
 
-> キャンプ用品の予約・購入が可能なWebサービス（個人プロジェクト）
+> キャンプ用品の予約・購入が可能なWebサービス
 
 ---
 
